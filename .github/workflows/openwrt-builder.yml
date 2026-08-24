@@ -67,7 +67,12 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /mnt/workdir
         sudo chown $USER:$GROUPS /mnt/workdir
-     
+
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.26'
+
     - name: Clone source code
       working-directory: /mnt/workdir
       run: |
